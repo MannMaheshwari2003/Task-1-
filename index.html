@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Details Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="images">
+            <img src="images/bg-main-desktop.png" class="bg">
+            <img src="images\WhatsApp Image 2024-07-03 at 16.53.13_70972815.jpg" class="cardfront">
+            <img src="images/bg-card-back.png" class="cardback">
+            <div class="card-number" id="card-number-display">9591 6489 6389 101E</div>
+            <div class="card-front-details">
+              
+                <div class="cardholder-name" id="cardholder-name-display">FELICIA LEIRE</div>
+                <div class="exp-date">
+                    <span id="exp-month-display">09</span>/<span id="exp-year-display">00</span>
+                </div>
+            </div>
+            <div class="card-back-details">
+                <div class="cvc" id="cvc-display">000</div>
+            </div>
+        </div>
+       <div class="form-container">
+        <form id="card-form" onsubmit="return validateForm()">
+            <div class="input-group">
+                <label for="cardholder-name-input">Cardholder Name</label>
+                <input type="text" id="cardholder-name-input" placeholder="Felicia Leire" required>
+            </div>
+            <div class="input-group">
+                <label for="card-number-input">Card Number</label>
+                <input type="text" id="card-number-input" placeholder="9591 6489 6389 101E" required>
+                <span class="error" id="card-number-error">Wrong format, numbers only</span>
+            </div>
+            <div class="input-group">
+                <label for="exp-month-input">Exp. Date (MM)</label>
+                <input type="text" id="exp-month-input" placeholder="09" required>
+                <label for="exp-year-input">YY</label>
+                <input type="text" id="exp-year-input" placeholder="00" required>
+                <span class="error" id="exp-date-error">Wrong format, numbers only</span>
+            </div>
+            <div class="input-group">
+                <label for="cvc-input">CVC</label>
+                <input type="text" id="cvc-input" placeholder="e.g. 123" required>
+                <span class="error" id="cvc-error">CVC must be 3-4 digits</span>
+            </div>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function validateForm() {
+            var cardNumber = document.getElementById('card-number-input').value;
+            var cardNumberError = document.getElementById('card-number-error');
+            var expMonth = document.getElementById('exp-month-input').value;
+            var expYear = document.getElementById('exp-year-input').value;
+            var expDateError = document.getElementById('exp-date-error');
+            var cvc = document.getElementById('cvc-input').value;
+            var cvcError = document.getElementById('cvc-error');
+            var cardNumberRegex = /^[0-9]+$/;
+            var cvcRegex = /^[0-9]{3,4}$/;
+
+            if (!cardNumberRegex.test(cardNumber)) {
+                cardNumberError.style.display = 'block';
+                return false;
+            } else {
+                cardNumberError.style.display = 'none';
+            }
+
+            if (!cardNumberRegex.test(expMonth) || !cardNumberRegex.test(expYear)) {
+                expDateError.style.display = 'block';
+                return false;
+            } else {
+                expDateError.style.display = 'none';
+            }
+
+            if (!cvcRegex.test(cvc)) {
+                cvcError.style.display = 'block';
+                return false;
+            } else {
+                cvcError.style.display = 'none';
+            }
+
+            var val = confirm("Thank You for entering the details");
+            if (val == true) {
+                console.log("Redirect!");
+                return false;
+            } else {
+                console.log("Not Redirect");
+                return false;
+            }
+        }
+    </script>
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>

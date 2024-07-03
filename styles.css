@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.cardfront {
+    top: 0;
+    left: 0;
+    z-index: 2; /* Bring the card front to the front */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: hsl(270, 3%, 87%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.images {
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+
+.images img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.bg {
+    z-index: 1;
+    width: 100%;
+}
+
+.cardfront {
+    z-index: 2;
+    margin-top: 130px;
+    margin-left: 170px;
+    border-radius: 10px;
+    width: 300px;
+    height: 180px;
+}
+
+.card-front-details, .card-back-details {
+    position: absolute;
+    color: white;
+    z-index: 4;
+}
+
+.card-front-details {
+    top: 100px;
+    left: 20px;
+}
+
+.card-back-details {
+    top: 150px;
+    right: 20px;
+    transform: translateX(50%);
+}
+
+.card-number, .cardholder-name, .exp-date, .cvc {
+    margin: 10px 0;
+}
+.card-number{
+    display: flex;
+    position: relative;
+    color: white;
+    z-index: 4;
+    top: 272px;
+    left: 214px;
+    font-size: 40px;
+}
+.cardholder-name{
+    display: flex;
+    position: relative;
+    color: white;
+    z-index: 4;
+    top: 244px;
+    left: 196px;
+    font-size: 19px;
+}
+.exp-date{
+    margin: 10px 0;
+    display: flex;
+    position: relative;
+    color: white;
+    z-index: 4;
+    top: 210px;
+    left: 540px;
+    font-size: 19px;
+}
+.cvc{
+    margin: 10px 0;
+    margin: 10px 0;
+    display: flex;
+    position: relative;
+    color: white;
+    z-index: 4;
+    top: 413px;
+    left: 272px;
+
+    font-size: 19px;
+}
+.cardback {
+    z-index: 3;
+    margin-top: 450px;
+    margin-left: 323px;
+    border-radius: 10px;
+    width: 300px;
+    height: 180px;
+}
+
+.form-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    width: 90%;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: hsl(278, 68%, 11%);
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid hsl(279, 6%, 55%);
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+}
+
+.input-group .error {
+    color: hsl(0, 100%, 66%);
+    font-size: 12px;
+    display: none;
+}
+
+button[type="submit"] {
+    padding: 15px;
+    background: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background: hsl(278, 94%, 30%);
+}
+
+.thank-you-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.thank-you-message p:first-child {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: hsl(278, 68%, 11%);
+}
+
+.thank-you-message p:last-child {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: hsl(279, 6%, 55%);
+}
+
+.thank-you-message button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.thank-you-message button:hover {
+    background: hsl(278, 94%, 30%);
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .card-images {
+        display: block;
+        width: 50%;
+    }
+
+    .form-container {
+        width: 50%;
+        padding: 40px;
+    }
+}
